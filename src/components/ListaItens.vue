@@ -13,9 +13,11 @@
               Item name 
             </div>
             <v-list-item-title class="text-h5 mb-1">
-              Coca-Cola {{ item.nameItem }}
+              {{ item.nameItem }}
             </v-list-item-title>
-            <v-list-item-subtitle>2L {{ item.desc }}</v-list-item-subtitle>
+            <v-list-item-subtitle>
+              {{ item.desc }}
+            </v-list-item-subtitle>
           </v-list-item-content>
 
           <v-list-item-avatar
@@ -49,31 +51,43 @@
   <script>
   
   export default {
+    mounted() {
+      // this.loadItemsList();
+    },
     data: function() {
       return {
-        // items: [{
-        //   id: String,
-        //   nameItem: String,
-        //   desc: String
-        // }],
+        items: [
+         {
+            id: '1',
+            nameItem: 'Coca-Cola',
+            desc: 'Tem 2 litros'
+         },
+         {
+            id: '2',
+            nameItem: 'Guarana',
+            desc: 'Tem 2 litros'
+         }
+        ]
       }
     },
     name: 'ListaItens', 
     props: {
         title: String,
     },
-    created() {
-      // var self = this;
-      //   axios.get('/meals')
-      //       .then(function (response) {
-      //       self.meal_choices = response.data;
-      //       console.log(response.data);
-      //     })
-      //     .catch(function (error) {
-      //       console.log(error);
-      //     });
-      const items = [{ id: '1', nameItem: "coca", desc: "2l" }, { id: '2', nameItem: "coca2", desc: "3l" }]
-      console.log(items)
+    // created() {
+    //   
+    // },
+    methods: {
+      // loadItemsList() {
+        // axios.get('/api/projects')
+        //   .then(response => {
+        //       this.projects = response.data;
+        //       return response
+        //   })
+        //   .catch(error => {
+        //     return error
+        //   });
+      // }
     }
   }
   </script>
